@@ -69,7 +69,7 @@ function Editor() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm rounded-bottom py-3">
         <div className="container-fluid">
           <span className="navbar-brand">Editor</span>
           <div className="d-flex align-items-center ms-auto">
@@ -80,11 +80,11 @@ function Editor() {
       </nav>
       <div className="container" style={{ maxWidth: '80vw', marginTop: 40 }}>
         <div className="d-flex justify-content-between align-items-center mb-3">
-          <h2>Mis Posts</h2>
+          <h2 className="text-primary">Mis Posts</h2>
           <button className="btn btn-primary" onClick={handleAdd}>Añadir nuevo post</button>
         </div>
-        <table className="table table-striped">
-          <thead>
+        <table className="table table-striped table-hover shadow-sm rounded">
+          <thead className="table-primary">
             <tr>
               <th>Título</th>
               <th>Descripción</th>
@@ -93,7 +93,7 @@ function Editor() {
           </thead>
           <tbody>
             {posts.length === 0 ? (
-              <tr><td colSpan="3">No tienes posts.</td></tr>
+              <tr><td colSpan="3" className="text-nowrap">No tienes posts.</td></tr>
             ) : posts.map(post => (
               <tr key={post.id}>
                 <td>{post.titulo}</td>

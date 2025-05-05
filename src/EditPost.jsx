@@ -62,18 +62,18 @@ function EditPost() {
   if (loading) return <div className="container mt-5">Cargando...</div>;
 
   return (
-    <div className="container mt-5" style={{ maxWidth: 600 }}>
-      <h2 className="mb-4">Editar Post</h2>
-      <form onSubmit={handleSubmit} className="border p-4 rounded bg-light">
+    <div className="container mt-5" style={{ maxWidth: '600px' }}>
+      <h2 className="mb-4 text-center text-warning">Editar Post</h2>
+      <form onSubmit={handleSubmit} className="border p-4 rounded shadow-sm bg-white">
         <div className="mb-3">
-          <input name="titulo" className="form-control" placeholder="Título" value={form.titulo} onChange={handleChange} required />
+          <input name="titulo" className="form-control form-control-lg" placeholder="Título" value={form.titulo} onChange={handleChange} required />
         </div>
         <div className="mb-3">
-          <textarea name="descripcion" className="form-control" placeholder="Descripción" value={form.descripcion} onChange={handleChange} required rows={4} />
+          <textarea name="descripcion" className="form-control form-control-lg" placeholder="Descripción" value={form.descripcion} onChange={handleChange} required rows={4} />
         </div>
-        <button type="submit" className="btn btn-warning w-100">Actualizar Post</button>
+        <button type="submit" className="btn btn-warning btn-lg w-100">Actualizar Post</button>
       </form>
-      {message && <div className="alert alert-info mt-3">{message}</div>}
+      {message && <div className="alert alert-info mt-3 text-center">{message}</div>}
     </div>
   );
 }

@@ -33,19 +33,19 @@ function Login() {
   };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: 400 }}>
-      <h2 className="mb-4">Iniciar sesión</h2>
-      <form onSubmit={handleSubmit} className="border p-4 rounded bg-light">
+    <div className="container mt-5" style={{ maxWidth: '400px' }}>
+      <h2 className="mb-4 text-center text-primary">Iniciar Sesión</h2>
+      <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow">
         <div className="mb-3">
-          <input name="username" className="form-control" placeholder="Usuario" value={form.username} onChange={handleChange} required />
+          <input name="username" className="form-control form-control-lg" placeholder="Nombre de Usuario" value={form.username} onChange={handleChange} required />
         </div>
         <div className="mb-3">
-          <input name="password" type="password" className="form-control" placeholder="Contraseña" value={form.password} onChange={handleChange} required />
+          <input name="password" type="password" className="form-control form-control-lg" placeholder="Contraseña" value={form.password} onChange={handleChange} required />
         </div>
-        <button type="submit" className="btn btn-success w-100">Entrar</button>
-        <Link to="/register" style={{ marginRight: 10 }}>Sino tienes usuario, crealo</Link>
+        <button type="submit" className="btn btn-success btn-lg w-100">Entrar</button>
+        <Link to="/register" className="d-block text-center mt-3 text-decoration-none">¿No tienes cuenta? Regístrate</Link>
       </form>
-      {message && <div className="alert alert-info mt-3">{message}</div>}
+      {message && <div className="alert alert-info mt-3 text-center">{message}</div>}
     </div>
   );
 }

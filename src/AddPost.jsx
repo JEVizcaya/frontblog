@@ -39,18 +39,18 @@ function AddPost() {
   };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: 600 }}>
-      <h2 className="mb-4">Nuevo Post</h2>
-      <form onSubmit={handleSubmit} className="border p-4 rounded bg-light">
+    <div className="container mt-5" style={{ maxWidth: '600px' }}>
+      <h2 className="mb-4 text-center text-primary">Crear Nuevo Post</h2>
+      <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow">
         <div className="mb-3">
-          <input name="titulo" className="form-control" placeholder="Título" value={form.titulo} onChange={handleChange} required />
+          <input name="titulo" className="form-control form-control-lg" placeholder="Título del Post" value={form.titulo} onChange={handleChange} required />
         </div>
         <div className="mb-3">
-          <textarea name="descripcion" className="form-control" placeholder="Descripción" value={form.descripcion} onChange={handleChange} required rows={4} />
+          <textarea name="descripcion" className="form-control form-control-lg" placeholder="Contenido del Post" value={form.descripcion} onChange={handleChange} required rows={6} />
         </div>
-        <button type="submit" className="btn btn-primary w-100">Crear Post</button>
+        <button type="submit" className="btn btn-primary btn-lg w-100">Publicar</button>
       </form>
-      {message && <div className="alert alert-info mt-3">{message}</div>}
+      {message && <div className="alert alert-info mt-3 text-center">{message}</div>}
     </div>
   );
 }
