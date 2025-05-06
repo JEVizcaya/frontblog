@@ -8,6 +8,7 @@ import Login from './Login';
 import Editor from './Editor';
 import AddPost from './AddPost';
 import EditPost from './EditPost';
+import PostDetail from './PostDetail';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -39,6 +40,7 @@ function App() {
         <Route path="/editor" element={<Editor />} />
         <Route path="/add" element={<AddPost />} />
         <Route path="/edit/:id" element={<EditPost />} />
+        <Route path="/post/:id" element={<PostDetail />} />
         <Route path="/" element={
           <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-4">
@@ -72,6 +74,7 @@ function App() {
                           <div className="mt-auto">
                             <span className="badge bg-secondary">Autor: {post.username}</span>
                           </div>
+                          <Link to={`/post/${post.id}`} className="stretched-link"></Link>
                         </div>
                       </div>
                     </div>
