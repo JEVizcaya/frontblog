@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();
     try {
       // Cambia la URL por la de tu API real
-      const res = await fetch('http://localhost:3001/api/auth/login', {
+      await fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),

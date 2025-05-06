@@ -9,6 +9,7 @@ import Editor from './Editor';
 import AddPost from './AddPost';
 import EditPost from './EditPost';
 import PostDetail from './PostDetail';
+import { API_BASE_URL } from './config';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,7 +20,7 @@ function App() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch('http://localhost:3001/api/posts/');
+        const res = await fetch(`${API_BASE_URL}/posts/`);
         if (!res.ok) throw new Error('Error al obtener posts');
         const data = await res.json();
         setPosts(data);

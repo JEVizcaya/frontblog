@@ -16,7 +16,7 @@ function Editor() {
         return;
       }
       try {
-        const res = await fetch('http://localhost:3001/api/posts/my/', {
+        await fetch(`${API_BASE_URL}/posts/my/`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('Error al obtener posts');
@@ -40,7 +40,7 @@ function Editor() {
     if (!window.confirm('¿Seguro que quieres borrar este post?')) return;
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://localhost:3001/api/posts/${id}`, {
+      await fetch(`${API_BASE_URL}/posts/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
