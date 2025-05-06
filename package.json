@@ -2,15 +2,15 @@
   "name": "frontblog",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://JEVizcaya.github.io/frontblog",
   "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject",
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
   "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
-  },
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
     "bootstrap": "^5.3.5",
     "react": "^19.0.0",
