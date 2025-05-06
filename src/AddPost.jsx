@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from './config';
 
 function AddPost() {
   const [form, setForm] = useState({ titulo: '', descripcion: '' });
