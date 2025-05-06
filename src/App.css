@@ -1,110 +1,108 @@
-:root {
-  --primary: #ff6b6b;
-  --secondary: #4ecdc4;
-  --accent: #ffe66d;
-  --dark: #1a1a2e;
-  --light: #f7f7f7;
-}
-
 body {
-  background: linear-gradient(to right, #f8f9fa, #e0f7fa);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--dark);
+  font-family: 'Press Start 2P', cursive;
+  background-color: #3a9a4c; /* verde césped base */
+  background-image:
+    linear-gradient(45deg, #4caf50 25%, transparent 25%),
+    linear-gradient(-45deg, #4caf50 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #4caf50 75%),
+    linear-gradient(-45deg, transparent 75%, #4caf50 75%);
+  background-size: 32px 32px;
+  background-position: 0 0, 0 16px, 16px -16px, -16px 0px;
+  color: #222;
   margin: 0;
   padding: 0;
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
 .navbar {
-  border-radius: 8px;
+  background-color: #3E8E41 !important; /* verde oscuro césped */
+  border-bottom: 4px solid #2E7031;
+  font-size: 12px;
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
-  color: var(--primary) !important;
+  color: #fff !important;
+  text-shadow: 1px 1px #000;
 }
 
-.btn-outline-primary {
-  border-color: var(--primary);
-  color: var(--primary);
-}
-.btn-outline-primary:hover {
-  background-color: var(--primary);
+.btn {
+  border: 2px solid #222;
+  background-color: #A0522D; /* marrón tipo madera */
   color: #fff;
+  font-size: 10px;
+  padding: 10px 12px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 2px 2px #333;
 }
 
-.btn-primary {
-  background-color: var(--secondary);
-  border: none;
+.btn:hover {
+  background-color: #CD853F;
+  transform: scale(1.05);
 }
-.btn-primary:hover {
-  background-color: var(--primary);
+
+.container {
+  max-width: 1200px;
 }
 
 header {
-  background-color: var(--accent);
-  color: var(--dark);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #f4f4f4;
+  border: 4px solid #2E7031;
+  text-align: center;
+  padding: 1rem;
+  font-size: 14px;
+}
+
+h1 {
+  color: #2E7031;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .card {
-  padding: 1.5em;
-  border-radius: 16px;
-  background: #ffffff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 3px solid transparent;
-  background-image: linear-gradient(#fff, #fff),
-    linear-gradient(to right, var(--primary), var(--secondary));
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border: 3px solid #2E7031;
+  border-radius: 0;
+  font-size: 10px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .card-title {
-  font-size: 1.2rem;
-  color: var(--primary);
+  color: #2B2B2B;
+  font-size: 12px;
 }
 
 .card-text {
-  color: #555;
+  color: #444;
+  font-size: 9px;
 }
 
-.badge.bg-secondary {
-  background-color: var(--secondary);
+.badge {
+  background-color: #2E8B57;
   color: #fff;
-  font-weight: bold;
-  font-size: 0.85rem;
+  font-size: 8px;
+  padding: 5px 8px;
+  border-radius: 0;
 }
 
-.alert-danger {
-  background-color: #f8d7da;
-  color: #721c24;
-  border-radius: 6px;
+.alert {
+  font-size: 12px;
+  font-weight: bold;
 }
+
+.text-center {
+  text-align: center;
+}
+
 
 @media (max-width: 768px) {
-  #root {
-    padding: 1rem;
-    gap: 1rem;
+  .navbar-brand, .btn {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 14px;
   }
 
   .card {
-    padding: 1.2em;
+    font-size: 9px;
   }
 }
