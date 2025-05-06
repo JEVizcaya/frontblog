@@ -9,6 +9,7 @@ import Editor from './Editor';
 import AddPost from './AddPost';
 import EditPost from './EditPost';
 import PostDetail from './PostDetail';
+import { Link } from 'react-router-dom';
 import { API_BASE_URL } from './config';
 
 function App() {
