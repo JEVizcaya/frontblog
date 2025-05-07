@@ -17,7 +17,7 @@ function Editor() {
         return;
       }
       try {
-        const res =await fetch(`${API_BASE_URL}/posts/my/`, {
+        const res = await fetch(`${API_BASE_URL}/posts/my/`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('Error al obtener posts');
@@ -41,7 +41,7 @@ function Editor() {
     if (!window.confirm('¿Seguro que quieres borrar este post?')) return;
     const token = localStorage.getItem('token');
     try {
-      const res =await fetch(`${API_BASE_URL}/posts/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/posts/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -70,6 +70,16 @@ function Editor() {
 
   return (
     <>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div className="container">
+          <Link className="navbar-brand text-primary fw-bold" to="/">Blog</Link>
+          <div className="ms-auto d-flex align-items-center">
+            <span className="me-3">Bienvenido, <strong>{username}</strong></span>
+            <button className="btn btn-outline-danger btn-sm" onClick={handleLogout}>Cerrar sesión</button>
+          </div>
+        </div>
+      </nav>
+
       <div className="container" style={{ maxWidth: '80vw', marginTop: 40 }}>
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h2 className="text-primary">Mis Posts</h2>
