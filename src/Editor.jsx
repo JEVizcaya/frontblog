@@ -17,7 +17,7 @@ function Editor() {
         return;
       }
       try {
-        await fetch(`${API_BASE_URL}/posts/my/`, {
+        const res =await fetch(`${API_BASE_URL}/posts/my/`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('Error al obtener posts');
@@ -41,7 +41,7 @@ function Editor() {
     if (!window.confirm('¿Seguro que quieres borrar este post?')) return;
     const token = localStorage.getItem('token');
     try {
-      await fetch(`${API_BASE_URL}/posts/${id}`, {
+      const res =await fetch(`${API_BASE_URL}/posts/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });

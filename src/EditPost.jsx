@@ -17,7 +17,7 @@ function EditPost() {
     }
     const fetchPost = async () => {
       try {
-        await fetch(`${API_BASE_URL}/posts/${id}`, {
+        const res =await fetch(`${API_BASE_URL}/posts/${id}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (!res.ok) throw new Error('No se pudo cargar el post');
@@ -40,7 +40,7 @@ function EditPost() {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      await fetch(`${API_BASE_URL}/posts/${id}`, {
+      const res =await fetch(`${API_BASE_URL}/posts/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -19,7 +19,7 @@ function AddPost() {
       return;
     }
     try {
-      await fetch(`${API_BASE_URL}/posts`, {
+      const res =await fetch(`${API_BASE_URL}/posts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
