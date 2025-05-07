@@ -88,51 +88,45 @@ function Editor() {
       </nav>
 
       <div className="container mt-4">
-        <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3">
-          <h2 className="text-primary mb-2 mb-md-0">Mis Posts</h2>
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <h2 className="text-primary">Mis Posts</h2>
           <button className="btn btn-primary" onClick={handleAdd}>Añadir nuevo post</button>
         </div>
 
-        {/* Tabla responsive */}
-        <div className="table-responsive">
-          <table className="table table-striped table-hover shadow-sm rounded">
-            <thead className="table-primary">
-              <tr>
-                <th>Título</th>
-                <th>Descripción</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {posts.length === 0 ? (
-                <tr><td colSpan="3">No tienes posts.</td></tr>
-              ) : posts.map(post => (
-                <tr key={post.id}>
-                  <td style={{ wordBreak: 'break-word' }}>{post.titulo}</td>
-                  <td style={{ wordBreak: 'break-word' }}>
-                    {post.descripcion.length > 50
-                      ? <>
-                        {post.descripcion.substring(0, 50)}...
-                        <button
-                          className="btn btn-sm btn-info text-white ms-2"
-                          onClick={() => handleVerDescripcion(post.descripcion)}
-                        >
-                          Ver más
-                        </button>
-                      </>
-                      : post.descripcion}
-                  </td>
-                  <td>
-                    <div className="d-flex flex-wrap gap-2">
+        <div className="row">
+          {posts.length === 0 ? (
+            <div className="alert alert-info">No tienes posts.</div>
+          ) : (
+            posts.map(post => (
+              <div key={post.id} className="col-md-6 col-lg-4 mb-4">
+                <div className="card h-100 shadow-sm">
+                  <div className="card-body d-flex flex-column">
+                    <h5 className="card-title">{post.titulo}</h5>
+                    <p className="card-text">
+                      {post.descripcion.length > 100 ? (
+                        <>
+                          {post.descripcion.substring(0, 100)}...
+                          <i
+                            className="bi bi-eye text-info ms-2"
+                            style={{ fontSize: '1.2rem', cursor: 'pointer' }}
+                            title="Ver más"
+                            onClick={() => handleVerDescripcion(post.descripcion)}
+                          ></i>
+                        </>
+                      ) : (
+                        post.descripcion
+                      )}
+                    </p>
+
+                    <div className="mt-auto d-flex justify-content-between">
                       <button className="btn btn-sm btn-warning" onClick={() => handleEdit(post.id)}>Editar</button>
                       <button className="btn btn-sm btn-danger" onClick={() => handleDelete(post.id)}>Borrar</button>
                     </div>
-                  </td>
-
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
 
@@ -146,7 +140,7 @@ function Editor() {
                 <button type="button" className="btn-close" onClick={() => setMostrarModal(false)}></button>
               </div>
               <div className="modal-body">
-                <p style={{ whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}>{descripcionCompleta}</p>
+                <p style={{ whiteSpace: 'pre-wrap' }}>{descripcionCompleta}</p>
               </div>
               <div className="modal-footer">
                 <button className="btn btn-secondary" onClick={() => setMostrarModal(false)}>Cerrar</button>
