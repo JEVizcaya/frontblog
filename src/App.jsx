@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/blog">
+    <Router basename="/frontblog">
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
