@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { API_BASE_URL } from './config';
 
 function Editor() {
@@ -70,6 +70,11 @@ function Editor() {
 
   return (
     <>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-4">
+        <div className="container">
+          <Link className="navbar-brand text-primary fw-bold" to="/">Blog</Link>
+        </div>
+      </nav>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm rounded-bottom py-3">
         <div className="container-fluid">
           <span className="navbar-brand">Editor</span>

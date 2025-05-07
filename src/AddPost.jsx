@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { API_BASE_URL } from './config';
 
 function AddPost() {
@@ -41,6 +41,11 @@ function AddPost() {
 
   return (
     <div className="container mt-5" style={{ maxWidth: '600px' }}>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-4">
+        <div className="container">
+          <Link className="navbar-brand text-primary fw-bold" to="/">Blog</Link>
+        </div>
+      </nav>
       <h2 className="mb-4 text-center text-primary">Crear Nuevo Post</h2>
       <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow">
         <div className="mb-3">
