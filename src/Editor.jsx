@@ -7,6 +7,8 @@ function Editor() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [username, setUsername] = useState('');
+  const [modalDescripcion, setModalDescripcion] = useState('');
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -65,6 +67,11 @@ function Editor() {
     navigate('/login');
   };
 
+  const handleVerDescripcion = (descripcion) => {
+    setModalDescripcion(descripcion);
+    setShowModal(true);
+  };
+
   if (loading) return <div className="container mt-5">Cargando...</div>;
   if (error) return <div className="container mt-5 alert alert-danger">{error}</div>;
 
@@ -99,7 +106,16 @@ function Editor() {
             ) : posts.map(post => (
               <tr key={post.id}>
                 <td>{post.titulo}</td>
-                <td>{post.descripcion}</td>
+                <td>
+                  {post.descripcion.length > 100
+                    ? <>
+                      {post.descripcion.substring(0, 100)}...
+                      <button className="btn btn-sm btn-info text-white ms-2" onClick={() => handleVerDescripcion(post.descripcion)}>
+                        Ver más
+                      </button>
+                    </>
+                    : post.descripcion}
+                </td>
                 <td>
                   <button className="btn btn-sm btn-warning me-2" onClick={() => handleEdit(post.id)}>Editar</button>
                   <button className="btn btn-sm btn-danger" onClick={() => handleDelete(post.id)}>Borrar</button>
@@ -109,6 +125,29 @@ function Editor() {
           </tbody>
         </table>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <>
+          <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Descripción completa</h5>
+                  <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
+                </div>
+                <div className="modal-body">
+                  <p>{modalDescripcion}</p>
+                </div>
+                <div className="modal-footer">
+                  <button className="btn btn-secondary" onClick={() => setShowModal(false)}>Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="modal-backdrop fade show"></div>
+        </>
+      )}
     </>
   );
 }
