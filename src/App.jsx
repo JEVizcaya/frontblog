@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Register from './Register';
 import Login from './Login';
 import Editor from './Editor';
@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/frontblog">
+    <Router>
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
