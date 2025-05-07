@@ -70,20 +70,6 @@ function Editor() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-4">
-        <div className="container">
-          <Link className="navbar-brand text-primary fw-bold" to="/">Blog</Link>
-        </div>
-      </nav>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm rounded-bottom py-3">
-        <div className="container-fluid">
-          <span className="navbar-brand">Editor</span>
-          <div className="d-flex align-items-center ms-auto">
-            <span className="text-white me-3">{username}</span>
-            <button className="btn btn-outline-light btn-sm" onClick={handleLogout}>Cerrar sesión</button>
-          </div>
-        </div>
-      </nav>
       <div className="container" style={{ maxWidth: '80vw', marginTop: 40 }}>
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h2 className="text-primary">Mis Posts</h2>

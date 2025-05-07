@@ -35,11 +35,6 @@ function Login() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-4">
-        <div className="container">
-          <Link className="navbar-brand text-primary fw-bold" to="/">Blog</Link>
-        </div>
-      </nav>
       <div className="container mt-5" style={{ maxWidth: '400px' }}>
         <h2 className="mb-4 text-center text-primary">Iniciar Sesión</h2>
         <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow">

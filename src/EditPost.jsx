@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { API_BASE_URL } from './config';
 
 function EditPost() {
@@ -64,11 +64,6 @@ function EditPost() {
 
   return (
     <div className="container mt-5" style={{ maxWidth: '600px' }}>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-4">
-        <div className="container">
-          <Link className="navbar-brand text-primary fw-bold" to="/">Blog</Link>
-        </div>
-      </nav>
       <h2 className="mb-4 text-center text-warning">Editar Post</h2>
       <form onSubmit={handleSubmit} className="border p-4 rounded shadow-sm bg-white">
         <div className="mb-3">

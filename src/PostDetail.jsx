@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { API_BASE_URL } from './config';
 
@@ -29,11 +29,6 @@ function PostDetail() {
 
   return (
     <div className="container mt-4">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-4">
-        <div className="container">
-          <Link className="navbar-brand text-primary fw-bold" to="/">Blog</Link>
-        </div>
-      </nav>
       <div
         style={{
           backgroundColor: '#333',
