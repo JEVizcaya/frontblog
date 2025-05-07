@@ -7,8 +7,8 @@ function Editor() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [username, setUsername] = useState('');
-  const [modalDescripcion, setModalDescripcion] = useState('');
-  const [showModal, setShowModal] = useState(false);
+  const [descripcionCompleta, setDescripcionCompleta] = useState('');
+  const [mostrarModal, setMostrarModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -68,8 +68,8 @@ function Editor() {
   };
 
   const handleVerDescripcion = (descripcion) => {
-    setModalDescripcion(descripcion);
-    setShowModal(true);
+    setDescripcionCompleta(descripcion);
+    setMostrarModal(true);
   };
 
   if (loading) return <div className="container mt-5">Cargando...</div>;
@@ -109,11 +109,14 @@ function Editor() {
                 <td>
                   {post.descripcion.length > 100
                     ? <>
-                      {post.descripcion.substring(0, 100)}...
-                      <button className="btn btn-sm btn-info text-white ms-2" onClick={() => handleVerDescripcion(post.descripcion)}>
-                        Ver más
-                      </button>
-                    </>
+                        {post.descripcion.substring(0, 100)}...
+                        <button
+                          className="btn btn-sm btn-info text-white ms-2"
+                          onClick={() => handleVerDescripcion(post.descripcion)}
+                        >
+                          Ver más
+                        </button>
+                      </>
                     : post.descripcion}
                 </td>
                 <td>
@@ -126,27 +129,24 @@ function Editor() {
         </table>
       </div>
 
-      {/* Modal */}
-      {showModal && (
-        <>
-          <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title">Descripción completa</h5>
-                  <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
-                </div>
-                <div className="modal-body">
-                  <p>{modalDescripcion}</p>
-                </div>
-                <div className="modal-footer">
-                  <button className="btn btn-secondary" onClick={() => setShowModal(false)}>Cerrar</button>
-                </div>
+      {/* MODAL RESPONSIVE */}
+      {mostrarModal && (
+        <div className="modal fade show d-block" tabIndex="-1" role="dialog" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+          <div className="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Descripción completa</h5>
+                <button type="button" className="btn-close" onClick={() => setMostrarModal(false)}></button>
+              </div>
+              <div className="modal-body">
+                <p style={{ whiteSpace: 'pre-wrap' }}>{descripcionCompleta}</p>
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-secondary" onClick={() => setMostrarModal(false)}>Cerrar</button>
               </div>
             </div>
           </div>
-          <div className="modal-backdrop fade show"></div>
-        </>
+        </div>
       )}
     </>
   );
